@@ -44,6 +44,12 @@ jobs:
        run: |
          echo "JFROG_BUILD_STATUS=FAIL" >> $GITHUB_ENV
        if: failure()
+        - name: Login to JFrog Docker repo
+       uses: docker/login-action@v3
+       with:
+          registry: rodolphefplus.jfrog.io
+          username: ${{ secrets.JF_USER }}
+          password: ${{ secrets.JF_PASSWORD }}
      - name: Docker Build 🐳🐸
        run: |
          jf docker build . -t rodolphefplus.frog.io/${{secrets.DOCKER_JF_RT_REPO}}/reactappimage:${{github.run_number}}
