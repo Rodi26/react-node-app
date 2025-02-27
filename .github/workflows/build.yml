@@ -44,7 +44,7 @@ jobs:
        run: |
          echo "JFROG_BUILD_STATUS=FAIL" >> $GITHUB_ENV
        if: failure()
-        - name: Login to JFrog Docker repo
+     - name: Login to JFrog Docker repo
        uses: docker/login-action@v3
        with:
           registry: rodolphefplus.jfrog.io
