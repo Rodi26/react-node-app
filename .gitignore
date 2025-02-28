@@ -109,3 +109,6 @@ dist
 ./node_modules
 
 ./git.sh
+package-lock.json
+.jfrog/projects/npm.yaml
+.jfrog/projects/npm.yaml

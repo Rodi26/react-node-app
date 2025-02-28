@@ -1,8 +1,8 @@
 version: 1
 type: npm
 resolver:
-    repo: alpha-npm-virtual
-    serverId: rtsaas
+    repo: soleng-dev-npm
+    serverId: rodolphefplus.jfrog.io
 deployer:
-    repo: alpha-npm-virtual
-    serverId: rtsaas
+    repo: soleng-dev-npm
+    serverId: rodolphefplus.jfrog.io
