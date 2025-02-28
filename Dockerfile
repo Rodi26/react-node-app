@@ -1,6 +1,6 @@
 # Base image from 
-FROM nginx:stable-alpine3.17-slim
-FROM node:22
+FROM rodolphefplus.jfrog.io/rodolphef-docker-dev-virtual/nginx:stable-alpine3.17-slim
+FROM rodolphefplus.jfrog.io/rodolphef-docker-dev-virtual/node:22
 
 # Create app directory
 RUN mkdir -p /usr/src/app

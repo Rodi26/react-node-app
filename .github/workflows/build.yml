@@ -46,13 +46,13 @@ jobs:
        if: failure()
      - name: Docker Build 🐳🐸
        run: |
-         jf docker build . -t rodolphefplus.frog.io/${{secrets.DOCKER_JF_RT_REPO}}/reactappimage:${{github.run_number}}
+         jf docker build . -t rodolphefplus.jfrog.io/${{secrets.DOCKER_JF_RT_REPO}}/reactappimage:${{github.run_number}}
      - name: Docker Scan 🐳🐸
        run: |
-         jf docker scan rodolphefplus.frog.io/${{secrets.DOCKER_JF_RT_REPO}}/reactappimage:${{github.run_number}}
+         jf docker scan rodolphefplus.jfrog.io/${{secrets.DOCKER_JF_RT_REPO}}/reactappimage:${{github.run_number}}
      - name: Docker Push 🐳🐸
        run: |
-         jf docker push rodolphefplus.frog.io/${{secrets.DOCKER_JF_RT_REPO}}/reactappimage:${{github.run_number}}
+         jf docker push rodolphefplus.jfrog.io/${{secrets.DOCKER_JF_RT_REPO}}/reactappimage:${{github.run_number}}
      - name: Publish build build-info
        run: |
          # Collect and store environment variables in the build-info
@@ -70,7 +70,7 @@ jobs:
 
          # promote to Dev
          jf rbp reactApp ${{ github.run_number}} DEV --signing-key=${{ secrets.Key }} --include-repos=alpha-npm-dev-local
-         jf rt set-props "${{secrets.NPM_JF_RT_REPO}}/react-bank-api/-/react-bank-api-1.0.23.tgz" "unit.test=pass;integration.test=null;"
+             jf rt set-props "${{secrets.NPM_JF_RT_REPO}}/react-bank-api/-/react-bank-api-1.0.23.tgz" "unit.test=pass;integration.test=null;"
          
 
          # Promote to QA
