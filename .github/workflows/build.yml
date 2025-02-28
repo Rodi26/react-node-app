@@ -73,9 +73,9 @@ jobs:
          # Scan the published build-info with Xray
          jf rt bs ${{env.BUILD_NAME}} ${{github.run_number}}
        if: always()
-     #- name: Create Release Bundle for RLM
-       #run: |
-         #jf rbc --builds=json/builds-spec.json --signing-key=${{ secrets.Key }} reactApp ${{github.run_number}}
+     - name: Create Release Bundle for RLM
+       run: |
+         jf rbc --builds=json/builds-spec.json --signing-key=${{ secrets.Key }} reactApp ${{github.run_number}}
 
          # promote to Dev
          #jf rbp reactApp ${{ github.run_number}} DEV --signing-key=${{ secrets.Key }} --include-repos=${{secrets.NPM_JF_RT_REPO}}
@@ -83,8 +83,8 @@ jobs:
          
 
          # Promote to QA
-         #jf rbp reactApp ${{ github.run_number }} QA --signing-key=${{ secrets.Key }} --include-repos=soleng.npm.qa.local
-         #jf rt set-props "soleng.npm.qa/react-bank-api/-/react-bank-api-1.0.23.tgz" "unit.test=pass;integration.test=pass;"
+         jf rbp reactApp ${{ github.run_number }} QA --signing-key=${{ secrets.Key }} --include-repos="rodolphef-docker-qa-local;soleng.npm.qa.local"
+         jf rt set-props "soleng.npm.qa.local/react-bank-api/-/react-bank-api-1.0.23.tgz" "unit.test=pass;integration.test=pass;"
 
          # Promote to PROD
          #jf rbp reactApp ${{ github.run_number }} PROD --signing-key=${{ secrets.Key }} --include-repos=soleng.npm.qa.local
