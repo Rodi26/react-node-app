@@ -73,13 +73,13 @@ jobs:
          # Scan the published build-info with Xray
          jf rt bs ${{env.BUILD_NAME}} ${{github.run_number}}
        if: always()
-     - name: Create Release Bundle for RLM
-       run: |
-         jf rbc --builds=json/builds-spec.json --signing-key=${{ secrets.Key }} reactApp ${{github.run_number}}
+     #- name: Create Release Bundle for RLM
+       #run: |
+         #jf rbc --builds=json/builds-spec.json --signing-key=${{ secrets.Key }} reactApp ${{github.run_number}}
 
          # promote to Dev
-         jf rbp reactApp ${{ github.run_number}} DEV --signing-key=${{ secrets.Key }} --include-repos=${{secrets.NPM_JF_RT_REPO}}
-             jf rt set-props "${{secrets.NPM_JF_RT_REPO}}/react-bank-api-react-bank-api-1.0.23.tgz" "unit.test=pass;integration.test=null;"
+         #jf rbp reactApp ${{ github.run_number}} DEV --signing-key=${{ secrets.Key }} --include-repos=${{secrets.NPM_JF_RT_REPO}}
+         #jf rt set-props "${{secrets.NPM_JF_RT_REPO}}/react-bank-api-react-bank-api-1.0.23.tgz" "unit.test=pass;integration.test=null;"
          
 
          # Promote to QA
