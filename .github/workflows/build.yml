@@ -58,7 +58,7 @@ jobs:
          jf docker build . -t rodolphefplus.jfrog.io/rodolphef-docker-dev-local/reactappimage:${{github.run_number}}
      - name: Docker Scan 🐳🐸
        run: |
-         jf docker scan rodolphefplus.jfrog.io/odolphef-docker-dev-local/reactappimage:${{github.run_number}}
+         jf docker scan rodolphefplus.jfrog.io/rodolphef-docker-dev-local/reactappimage:${{github.run_number}}
      - name: Docker Push 🐳🐸
        run: |
          jf docker push rodolphefplus.jfrog.io/rodolphef-docker-dev-local/reactappimage:${{github.run_number}}
