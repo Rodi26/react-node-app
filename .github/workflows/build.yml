@@ -58,7 +58,7 @@ jobs:
          jf docker build . -t rodolphefplus.jfrog.io/rodolphef-docker-dev-local/reactappimage:${{github.run_number}}
      - name: Docker Scan 🐳🐸
        run: |
-         jf docker scan rodolphefplus.jfrog.io/rodolphef-docker-dev-local/reactappimage:${{github.run_number}}
+         jf docker scan rodolphefplus.jfrog.io/odolphef-docker-dev-local//reactappimage:${{github.run_number}}
      - name: Docker Push 🐳🐸
        run: |
          jf docker push rodolphefplus.jfrog.io/rodolphef-docker-dev-local/reactappimage:${{github.run_number}}
@@ -78,7 +78,7 @@ jobs:
          jf rbc --builds=json/builds-spec.json --signing-key=${{ secrets.Key }} reactApp ${{github.run_number}}
 
          # promote to Dev
-         jf rbp reactApp ${{ github.run_number}} DEV --signing-key=${{ secrets.Key }} --include-repos=alpha-npm-dev-local
+         jf rbp reactApp ${{ github.run_number}} DEV --signing-key=${{ secrets.Key }} --include-repos=${{secrets.NPM_JF_RT_REPO}}
              jf rt set-props "${{secrets.NPM_JF_RT_REPO}}/react-bank-api/-/react-bank-api-1.0.23.tgz" "unit.test=pass;integration.test=null;"
          
 
