@@ -87,7 +87,7 @@ jobs:
 
          # Promote to QA
          jf rbp reactApp ${{ github.run_number }} QA --signing-key=${{ secrets.Key }} --include-repos="rodolphef-docker-qa-local;soleng.npm.qa.local"
-         jf rt set-props "soleng.npm.qa.local/react-bank-api/-/react-bank-api-1.0.23.tgz" "unit.test=pass;integration.test=pass;"
+         jf rt set-props "soleng.npm.qa.local/react-bank-api/-/react-bank-api-2.0.${{github.run_number}}.tgz" "unit.test=pass;integration.test=pass;"
 
          # Promote to PROD
          #jf rbp reactApp ${{ github.run_number }} PROD --signing-key=${{ secrets.Key }} --include-repos=soleng.npm.qa.local
